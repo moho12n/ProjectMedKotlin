@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FinaleProject</string>
+    <string name="sign_up_nss">NSS</string>
+    <string name="sign_up_nom">Nom</string>
+    <string name="sign_up_prenom">Prénom</string>
+    <string name="sign_up_adress">Adresse</string>
+    <string name="sign_up_phone">Telephone</string>
 </resources>
