@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.16"
-        app:startIconDrawable="@mipmap/person_icon_foreground">
+        app:startIconDrawable="@mipmap/nss_icon_foreground">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EditTextNssSignUp"
@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.497"
-        app:startIconDrawable="@mipmap/person_icon_foreground">
+        app:startIconDrawable="@mipmap/adress_icon_foreground">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EditTextAdressSignUp"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.381"
-        app:startIconDrawable="@mipmap/person_icon_foreground">
+        app:startIconDrawable="@mipmap/prenom_icon_foreground">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EditTextPrenomSignUp"
@@ -102,7 +102,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.614"
-        app:startIconDrawable="@mipmap/person_icon_foreground">
+        app:startIconDrawable="@mipmap/phone_icon_foreground">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EditTextPhoneSignUp"
@@ -130,7 +130,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.281"
-        app:startIconDrawable="@mipmap/person_icon_foreground">
+        app:startIconDrawable="@mipmap/name_icon_foreground">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/EditTextNomSignUp"
