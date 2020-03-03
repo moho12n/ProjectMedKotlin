@@ -15,8 +15,8 @@ data class Medecin (
     val commune : String,
     val specialite : String,
     val localisation : String,
-    val heure_ouverture : Time,
-    val heure_fermeture : Time
+    val heure_ouverture : String,
+    val heure_fermeture : String
 ){
     @PrimaryKey (autoGenerate = true)
     var phone : Int?=null

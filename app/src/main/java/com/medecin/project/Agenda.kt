@@ -10,6 +10,5 @@ data class Agenda(
     @PrimaryKey
     var id_agenda:Int,
     var patient : Int,
-    val medecin : Int,
-    val date: Date
+    val medecin : Int
 )

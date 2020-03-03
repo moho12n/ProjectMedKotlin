@@ -1,15 +1,14 @@
-package com.medecin.project
-
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
 
-class PlayerAdapter (val ctx:Context,val data:List<Medecin>):BaseAdapter(){
+import android.widget.TextView
+import com.medecin.project.Medecin
+import com.medecin.project.R
+
+class MedecinAdapter (val ctx:Context,val data:List<Medecin>):BaseAdapter(){
     override fun getView(i: Int, p0: View?, parent: ViewGroup?): View {
         var view = p0
         var holder:ViewHolder
