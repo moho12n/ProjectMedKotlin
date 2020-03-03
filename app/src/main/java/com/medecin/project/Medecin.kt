@@ -4,9 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 import androidx.room.ForeignKey
-import java.sql.Time
 
-@Entity(tableName = "Player", foreignKeys = arrayOf(ForeignKey(entity =
+
+@Entity(tableName = "medecin", foreignKeys = arrayOf(ForeignKey(entity =
 Agenda::class, parentColumns = arrayOf("id_agenda"),
     childColumns = arrayOf("id_agenda"),
     onDelete = ForeignKey.CASCADE)))
