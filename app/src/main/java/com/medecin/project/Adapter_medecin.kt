@@ -3,12 +3,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Filter
 
 import android.widget.TextView
+import com.medecin.project.MainActivity
 import com.medecin.project.Medecin
 import com.medecin.project.R
+import java.util.*
 
-class MedecinAdapter (val ctx:Context,val data:List<Medecin>):BaseAdapter(){
+class MedecinAdapter (val ctx:Context,var data:List<Medecin>):BaseAdapter() {
+
     override fun getView(i: Int, p0: View?, parent: ViewGroup?): View {
         var view = p0
         var holder:ViewHolder
@@ -43,4 +47,22 @@ class MedecinAdapter (val ctx:Context,val data:List<Medecin>):BaseAdapter(){
     override fun getItemId(p0: Int) = data[p0].hashCode().toLong()
 
     override fun getCount() = data.size
+
+
+    /*fun filter(charText: String) {
+        var charText = charText
+        charText = charText.toLowerCase(Locale.getDefault())
+
+        MainActivity.movieNamesArrayList.clear()
+        if (charText.length == 0) {
+            MainActivity.movieNamesArrayList.addAll(arraylist)
+        } else {
+            for (wp in arraylist) {
+                if (wp.getAnimalName().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    MainActivity.movieNamesArrayList.add(wp)
+                }
+            }
+        }
+        notifyDataSetChanged()
+    }*/
 }

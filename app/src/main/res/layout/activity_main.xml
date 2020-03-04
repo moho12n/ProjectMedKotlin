@@ -6,6 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4"
+        android:layout_width="247dp"
+        android:layout_height="56dp"
+        android:baselineAligned="false"
+        app:hintTextColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.008"
+        app:startIconDrawable="@mipmap/search_icon_foreground">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EditTextRechercheCommune"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="Commune"
+            android:inputType="text"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textColorHighlight="@color/colorSecondary"
+            android:textColorHint="@color/colorSecondary"
+            android:textColorLink="@color/colorSecondary"
+            android:textCursorDrawable="@null" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="346dp"
+        android:layout_height="613dp"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="118dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout5"
+        android:layout_width="245dp"
+        android:layout_height="58dp"
+        android:baselineAligned="false"
+        app:hintTextColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09"
+        app:startIconDrawable="@mipmap/search_icon_foreground">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EditTextRechercheSpecialite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="Specialite"
+            android:inputType="text"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textColorHighlight="@color/colorSecondary"
+            android:textColorHint="@color/colorSecondary"
+            android:textColorLink="@color/colorSecondary"
+            android:textCursorDrawable="@null" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <ListView
         android:id="@+id/Listview_id"
         android:layout_width="347dp"
@@ -15,5 +79,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/button_recherche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@android:string/search_go"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
