@@ -73,19 +73,6 @@
                 android:textCursorDrawable="@null" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <ListView
-            android:id="@+id/Listview_id"
-            android:layout_width="347dp"
-            android:layout_height="596dp"
-            android:layout_marginTop="116dp"
-            android:layout_marginEnd="2dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.516"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </ListView>
-
         <Button
             android:id="@+id/button_recherche"
             android:layout_width="wrap_content"
@@ -97,6 +84,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.052" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_id"
+            android:layout_width="376dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="130dp"
+            android:keyboardNavigationCluster="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.891"
+            app:reverseLayout="true" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
