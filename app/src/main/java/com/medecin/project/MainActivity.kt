@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Medecin>>?, response:
             Response<List<Medecin>>?) {
                 myDataset.addAll(ArrayList( response?.body()!!))
-                
+
                 Log.e("dataset",myDataset.toString())
                 viewAdapter.notifyDataSetChanged()
             }
@@ -58,5 +58,32 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        EditTextRechercheCommune.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+                Log.e("Edit Text",EditTextRechercheCommune.text.toString())
+                val call2 = RetrofitService.endpoint.getmedecinCommune(EditTextRechercheCommune.text.toString())
+                call2.enqueue(object: Callback<List<Medecin>> {
+                    override fun onResponse(call2: Call<List<Medecin>>?, response:
+                    Response<List<Medecin>>?) {
+                        myDataset.clear()
+                        if(response?.body() != null) myDataset.addAll(ArrayList( response?.body()!!))
+                        Log.e("dataset",myDataset.toString())
+                        viewAdapter.notifyDataSetChanged()
+                    }
+                    override fun onFailure(call: Call<List<Medecin>>, t: Throwable) {
+                        Toast.makeText(this@MainActivity, t!!.message, Toast.LENGTH_SHORT).show()
+                    }
+                })
+
+            }
+        })
     }
 }
