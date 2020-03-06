@@ -1,17 +1,24 @@
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Filter
+import android.widget.*
 
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.medecin.project.MainActivity
 import com.medecin.project.Medecin
-import com.medecin.project.R
+
+import kotlinx.android.synthetic.main.medecin_list_element.view.*
 import java.util.*
 import kotlin.collections.ArrayList
+import androidx.core.content.ContextCompat.startActivity
+import android.content.Intent
+
+import android.net.Uri
+import MedecinAdapter.MyViewHolder
+import com.medecin.project.R
+import com.medecin.project.Util
 
 
 class MedecinAdapter(private val myDataset: ArrayList<Medecin>) :
@@ -29,7 +36,7 @@ class MedecinAdapter(private val myDataset: ArrayList<Medecin>) :
          val medecinCommune = view?.findViewById(R.id.medecin_commun) as TextView
          val medecinOpen = view?.findViewById(R.id.medecin_open_time) as TextView
          val medecinClose = view?.findViewById(R.id.medecin_close_time) as TextView
-
+         val button = view?.findViewById(R.id.button_location) as ImageButton
     }
 
     // Create new views (invoked by the layout manager)
@@ -37,7 +44,7 @@ class MedecinAdapter(private val myDataset: ArrayList<Medecin>) :
                                     viewType: Int): MedecinAdapter.MyViewHolder {
         // create a new view
         val listElement = LayoutInflater.from(parent.context)
-            .inflate(R.layout.medecin_list_element, parent, false)
+            .inflate(com.medecin.project.R.layout.medecin_list_element, parent, false)
         // set the view's size, margins, paddings and layout parameters
 
         return MyViewHolder(listElement)
@@ -55,6 +62,12 @@ class MedecinAdapter(private val myDataset: ArrayList<Medecin>) :
         holder.medecinName.text = myDataset[position].full_name
         holder.medecinPhone.text = myDataset[position].phone.toString()
 
+        holder.button.setOnClickListener {
+            val url  = "fb://page/218641444910278"
+            val util = Util()
+            util.openPage(MainActivity(),url)
+            Log.e("Button pressed", "Button is pressed")
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
