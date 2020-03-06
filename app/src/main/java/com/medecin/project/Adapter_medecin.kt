@@ -1,31 +1,45 @@
-package com.medecin.project
-
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.Filter
 
-class PlayerAdapter (val ctx:Context,val data:List<Medecin>):BaseAdapter(){
+import android.widget.TextView
+import com.medecin.project.MainActivity
+import com.medecin.project.Medecin
+import com.medecin.project.R
+import java.util.*
+
+class MedecinAdapter (val ctx:Context,var data:List<Medecin>):BaseAdapter() {
+
     override fun getView(i: Int, p0: View?, parent: ViewGroup?): View {
         var view = p0
         var holder:ViewHolder
         if (view == null) {
             view = LayoutInflater.from(ctx).inflate(R.layout.medecin_list_element,parent,false)
-            val textView = view?.findViewById(R.id.medecin_name) as TextView
-            holder = ViewHolder(textView)
+            val medecinName = view?.findViewById(R.id.medecin_name) as TextView
+            val medecinSpecialite = view?.findViewById(R.id.medecin_specialite) as TextView
+            val medecinPhone = view?.findViewById(R.id.medecin_phone) as TextView
+            val medecinCommune = view?.findViewById(R.id.medecin_commun) as TextView
+            val medecinOpen = view?.findViewById(R.id.medecin_open_time) as TextView
+            val medecinClose = view?.findViewById(R.id.medecin_close_time) as TextView
+            holder = ViewHolder(medecinName,medecinSpecialite,medecinPhone,medecinCommune,medecinOpen,medecinClose)
             view?.tag = holder
         }
         else {
             holder = view.tag as ViewHolder
         }
-        holder.textView.text = data[i].full_name
+        holder.medecinName.text = data[i].full_name
+        holder.medecinSpecialite.text = data[i].specialite
+        holder.medecinPhone.text = data[i].phone.toString()
+        holder.medecinCommune.text = data[i].commune
+        holder.medecinOpen.text = data[i].heure_ouverture
+        holder.medecinClose.text = data[i].heure_fermeture
+
         return view
     }
-    private class ViewHolder(val textView: TextView)
+    private class ViewHolder(val medecinName: TextView,val medecinSpecialite: TextView, val medecinPhone: TextView,val medecinCommune: TextView,val medecinOpen: TextView,val medecinClose: TextView)
 
 
     override fun getItem(p0: Int)= data[p0]
@@ -33,4 +47,22 @@ class PlayerAdapter (val ctx:Context,val data:List<Medecin>):BaseAdapter(){
     override fun getItemId(p0: Int) = data[p0].hashCode().toLong()
 
     override fun getCount() = data.size
+
+
+    /*fun filter(charText: String) {
+        var charText = charText
+        charText = charText.toLowerCase(Locale.getDefault())
+
+        MainActivity.movieNamesArrayList.clear()
+        if (charText.length == 0) {
+            MainActivity.movieNamesArrayList.addAll(arraylist)
+        } else {
+            for (wp in arraylist) {
+                if (wp.getAnimalName().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    MainActivity.movieNamesArrayList.add(wp)
+                }
+            }
+        }
+        notifyDataSetChanged()
+    }*/
 }

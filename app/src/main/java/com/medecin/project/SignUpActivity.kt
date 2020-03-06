@@ -1,5 +1,6 @@
 package com.medecin.project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -35,6 +36,8 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private  fun sendSMS(patient : Patient){
+        val intent = Intent(this, PopUpSignup::class.java)
+
         val call = RetrofitService.endpoint.envoyerSMS(patient)
 
 
@@ -42,6 +45,12 @@ class SignUpActivity : AppCompatActivity() {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response?.isSuccessful!!){
                     val str:String? = response.body()
+
+                    intent.putExtra("popuptitle", "Success")
+                    intent.putExtra("popuptext", "Please check your phone for the sms containing your password!")
+                    intent.putExtra("popupbtn", "OK")
+                    intent.putExtra("darkstatusbar", false)
+                    startActivity(intent)
 
                 }
                 else
@@ -51,6 +60,12 @@ class SignUpActivity : AppCompatActivity() {
                         "err",
                         Toast.LENGTH_SHORT
                     ).show()
+
+                    intent.putExtra("popuptitle", "Error")
+                    intent.putExtra("popuptext", "Sorry, that email address is already used!")
+                    intent.putExtra("popupbtn", "OK")
+                    intent.putExtra("darkstatusbar", false)
+                    startActivity(intent)
                 }
             }
 

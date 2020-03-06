@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -32,6 +33,14 @@ android {
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/ASL2.0'
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -58,7 +67,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation "android.arch.lifecycle:extensions:1.1.1"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -84,11 +92,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation group: "com.twilio.sdk", name: "twilio", version: "7.2.0"
-    compile 'com.twilio:chat-android:4.2.9'
+    implementation 'com.twilio:chat-android:4.2.9'
     implementation 'com.google.guava:guava:27.0.1-android'
-    implementation 'org.apache.httpcomponents:httpclient:4.5.3'
-    api 'org.apache.httpcomponents:httpcore:4.4.6'
-    api 'org.apache.httpcomponents:httpmime:4.3.6'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+
 
 
 }

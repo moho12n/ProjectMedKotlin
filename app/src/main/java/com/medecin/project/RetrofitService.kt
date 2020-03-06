@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitService {
     var gson = GsonBuilder().setLenient().create()
     val endpoint: Endpoint by lazy {
-        Retrofit.Builder().baseUrl("https://43ee8215.ngrok.io/")
+        Retrofit.Builder().baseUrl("https://88830364.ngrok.io/")
             .addConverterFactory(GsonConverterFactory.create(gson)).build()
             .create(Endpoint::class.java)
     }
