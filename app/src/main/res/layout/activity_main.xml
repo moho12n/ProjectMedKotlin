@@ -21,6 +21,7 @@
             android:id="@+id/textInputLayout4"
             android:layout_width="247dp"
             android:layout_height="56dp"
+            android:layout_marginTop="40dp"
             android:autofillHints="commune"
             android:baselineAligned="false"
             android:hint="Commune"
@@ -62,10 +63,10 @@
             app:hintTextColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.373"
+            app:layout_constraintHorizontal_bias="0.378"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.148"
+            app:layout_constraintVertical_bias="0.181"
             app:startIconDrawable="@mipmap/search_icon_foreground">
 
             <com.google.android.material.textfield.TextInputEditText

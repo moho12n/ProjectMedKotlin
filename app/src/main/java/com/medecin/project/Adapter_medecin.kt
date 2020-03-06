@@ -63,7 +63,7 @@ class MedecinAdapter(private val myDataset: ArrayList<Medecin>) :
         holder.medecinPhone.text = myDataset[position].phone.toString()
 
         holder.button.setOnClickListener {
-            val url  = "fb://page/218641444910278"
+            val url  = "https://maps.app.goo.gl/ryo51aauoWAuDcYu9"
             val util = Util()
             util.openPage(MainActivity(),url)
             Log.e("Button pressed", "Button is pressed")
