@@ -42,6 +42,7 @@ class MedecinTraitantActivity : AppCompatActivity() , NavigationView.OnNavigatio
         tab_layout!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
 
+                Log.e("element is ", tab.position.toString())
             }
             override fun onTabUnselected(tab: TabLayout.Tab) {
 
