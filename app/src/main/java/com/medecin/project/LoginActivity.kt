@@ -4,10 +4,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,10 +24,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        var btnlogin = findViewById(R.id.btnlogin) as Button
+        var btnlogin = findViewById(R.id.btnchangepassword) as Button
         btnlogin.setOnClickListener {
 
-
+            val intent = Intent(this, PopUpSignup::class.java)
+            val intent1 = Intent(this, Changepass::class.java)
 
             check()
 
@@ -39,20 +38,18 @@ class LoginActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<List<Patient>>?, response:
                 Response<List<Patient>>?) {
                     if(response?.body().isNullOrEmpty()){
-                        Toast.makeText(this@LoginActivity, "Veuillez verifier vos information", Toast.LENGTH_SHORT).show()
-
+                        Toast.makeText(this@LoginActivity, "Veuillez verifier vos information", Toast.LENGTH_LONG).show()
                     }
                     else {
                         if (response?.body()!![0].newpassword=="0"){
-
                             var phone = response?.body()!![0].phone
-                            Toast.makeText(this@LoginActivity, phone, Toast.LENGTH_SHORT).show()
-
+                            log(response?.body()!![0].phone,response?.body()!![0].password)
                         }
                         else {
                             Toast.makeText(this@LoginActivity, "Accueil", Toast.LENGTH_SHORT).show()
-                            log()
-                            //On met l'interface du patient
+                            intent1.putExtra("phone",response?.body()!![0].phone)
+                            startActivity(intent1)
+                            log(response?.body()!![0].phone,response?.body()!![0].password)
                         }
                     }
 
@@ -80,13 +77,15 @@ fun check():Boolean{
     return con
 
 }
- fun log(){
+ fun log(phone :String,password:String){
      val pref = this.getSharedPreferences("status"
 
          ,Context.MODE_PRIVATE)
      pref.edit {
          putBoolean("connected"
              ,true)
+         putString("phone",phone)
+         putString("password",password)
 
 
 

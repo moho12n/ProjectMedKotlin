@@ -6,5 +6,5 @@
     <color name="colorSecondary">#f44336</color>
     <color name="colorSecondaryDark">#BA000D</color>
     <color name="colorSecondaryAccent">#ff7961</color>
-    <color name="backgroundColor">#FAFAFA</color>
+    <color name="backgroundColor">#ECF5F0F0</color>
 </resources>

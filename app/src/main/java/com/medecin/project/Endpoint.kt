@@ -18,6 +18,10 @@ interface Endpoint {
 
     fun addpatient(@Body patient: Patient):Call<String>
 
+    @POST("patient/update/{phone}/{password}")
+    fun update ( @Path("phone" ) phone:String,@Path( "password") pass:String):Call<String>
+
+
     @GET("login/{phone}/{password}")
     fun login(@Path("phone") name:String ,@Path( "password") pass:String):Call<List<Patient>>
 
@@ -26,4 +30,8 @@ interface Endpoint {
     fun getmedecin(): Call<List<Medecin>>
     @GET("getMedecinCommune/{commune}")
     fun getmedecinCommune(@Path ("commune") isbn:String): Call<List<Medecin>>
+    @GET("getMedecinSpecialite/{specialite}")
+    fun getmedecinSpecialite(@Path ("specialite") isbn:String): Call<List<Medecin>>
+    @GET("getMedecin/{commune}/{specialite}")
+    fun getMedecinSpecAndComm(@Path ("commune") isbn:String,@Path ("specialite") isbn2:String): Call<List<Medecin>>
 }
