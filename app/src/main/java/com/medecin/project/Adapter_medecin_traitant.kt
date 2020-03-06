@@ -1,3 +1,5 @@
+package com.medecin.project
+
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,8 +23,8 @@ import com.medecin.project.R
 import com.medecin.project.Util
 
 
-class MedecinAdapter(private val myDataset: ArrayList<Medecin>) :
-    RecyclerView.Adapter<MedecinAdapter.MyViewHolder>() {
+class MedecinTraitantAdapter(private val myDataset: ArrayList<Medecin>) :
+    RecyclerView.Adapter<MedecinTraitantAdapter.MyViewHolder>() {
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -30,18 +32,18 @@ class MedecinAdapter(private val myDataset: ArrayList<Medecin>) :
     // Each data item is just a string in this case that is shown in a TextView.
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-         val medecinName = view?.findViewById(R.id.medecin_name) as TextView
-         val medecinSpecialite = view?.findViewById(R.id.medecin_specialite) as TextView
-         val medecinPhone = view?.findViewById(R.id.medecin_phone) as TextView
-         val medecinCommune = view?.findViewById(R.id.medecin_commun) as TextView
-         val medecinOpen = view?.findViewById(R.id.medecin_open_time) as TextView
-         val medecinClose = view?.findViewById(R.id.medecin_close_time) as TextView
-         val button = view?.findViewById(R.id.button_location) as ImageButton
+        val medecinName = view?.findViewById(R.id.medecin_name) as TextView
+        val medecinSpecialite = view?.findViewById(R.id.medecin_specialite) as TextView
+        val medecinPhone = view?.findViewById(R.id.medecin_phone) as TextView
+        val medecinCommune = view?.findViewById(R.id.medecin_commun) as TextView
+        val medecinOpen = view?.findViewById(R.id.medecin_open_time) as TextView
+        val medecinClose = view?.findViewById(R.id.medecin_close_time) as TextView
+        val button = view?.findViewById(R.id.button_location) as ImageButton
     }
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): MedecinAdapter.MyViewHolder {
+                                    viewType: Int): MedecinTraitantAdapter.MyViewHolder {
         // create a new view
         val listElement = LayoutInflater.from(parent.context)
             .inflate(com.medecin.project.R.layout.medecin_list_element, parent, false)
