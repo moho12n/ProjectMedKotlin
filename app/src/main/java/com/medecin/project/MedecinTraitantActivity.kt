@@ -41,8 +41,22 @@ class MedecinTraitantActivity : AppCompatActivity() , NavigationView.OnNavigatio
 
         tab_layout!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-
                 Log.e("element is ", tab.position.toString())
+                var call = RetrofitService.endpoint.getMedTraitant("782237885","pending")
+                if (tab.position === 0 ) call = RetrofitService.endpoint.getMedTraitant("782237885","accepted")
+                else call = RetrofitService.endpoint.getMedTraitant("782237885","pending")
+                call.enqueue(object: Callback<List<Medecin>> {
+                    override fun onResponse(call: Call<List<Medecin>>?, response:
+                    Response<List<Medecin>>?) {
+                        myDataset.clear()
+                        myDataset.addAll(ArrayList( response?.body()!!))
+                        Log.e("dataset",myDataset.toString())
+                        viewAdapter.notifyDataSetChanged()
+                    }
+                    override fun onFailure(call: Call<List<Medecin>>, t: Throwable) {
+                        Toast.makeText(this@MedecinTraitantActivity, t!!.message, Toast.LENGTH_SHORT).show()
+                    }
+                })
             }
             override fun onTabUnselected(tab: TabLayout.Tab) {
 
@@ -52,7 +66,7 @@ class MedecinTraitantActivity : AppCompatActivity() , NavigationView.OnNavigatio
             }
         })
 
-        val call = RetrofitService.endpoint.getMedTraitant("782237885")
+        val call = RetrofitService.endpoint.getMedTraitant("782237885","pending")
         call.enqueue(object: Callback<List<Medecin>> {
             override fun onResponse(call: Call<List<Medecin>>?, response:
             Response<List<Medecin>>?) {
