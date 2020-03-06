@@ -21,15 +21,19 @@
             android:id="@+id/textInputLayout4"
             android:layout_width="247dp"
             android:layout_height="56dp"
+            android:autofillHints="commune"
             android:baselineAligned="false"
             android:hint="Commune"
+            app:helperTextEnabled="false"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
             app:hintTextColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.378"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.008"
+            app:layout_constraintVertical_bias="0.041"
             app:startIconDrawable="@mipmap/search_icon_foreground">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -37,26 +41,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
+                android:hint="Commune"
                 android:inputType="text"
                 android:textColor="@color/design_default_color_on_secondary"
                 android:textColorHighlight="@color/colorSecondary"
-                android:textColorHint="@color/colorSecondary"
+                android:textColorHint="@color/backgroundColor"
                 android:textColorLink="@color/colorSecondary"
                 android:textCursorDrawable="@null" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout5"
-            android:layout_width="245dp"
+            android:layout_width="247dp"
             android:layout_height="58dp"
+            android:autofillHints="Specialite"
             android:baselineAligned="false"
+            android:hint=" "
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
             app:hintTextColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.373"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.09"
+            app:layout_constraintVertical_bias="0.148"
             app:startIconDrawable="@mipmap/search_icon_foreground">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -68,16 +77,16 @@
                 android:inputType="text"
                 android:textColor="@color/design_default_color_on_secondary"
                 android:textColorHighlight="@color/colorSecondary"
-                android:textColorHint="@color/colorSecondary"
+                android:textColorHint="@color/backgroundColor"
                 android:textColorLink="@color/colorSecondary"
                 android:textCursorDrawable="@null" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_id"
-            android:layout_width="376dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="130dp"
+            android:layout_width="361dp"
+            android:layout_height="00dp"
+            android:layout_marginTop="180dp"
             android:keyboardNavigationCluster="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +105,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menu"/>
+        app:menu="@menu/nav_menu" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
