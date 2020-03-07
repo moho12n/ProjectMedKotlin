@@ -34,7 +34,7 @@ interface Endpoint {
     fun getmedecinSpecialite(@Path ("specialite") isbn:String): Call<List<Medecin>>
     @GET("getMedecin/{commune}/{specialite}")
     fun getMedecinSpecAndComm(@Path ("commune") isbn:String,@Path ("specialite") isbn2:String): Call<List<Medecin>>
-    @GET("getMedTraitant/{phone}")
-    fun getMedTraitant(@Path ("phone") isbn:String): Call<List<Medecin>>
+    @GET("getMedTraitant/{phone}/{statut}")
+    fun getMedTraitant(@Path ("phone") isbn:String,@Path ("statut") isbn2:String): Call<List<Medecin>>
 
 }
