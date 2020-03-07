@@ -27,10 +27,9 @@ class LoginActivity : AppCompatActivity() {
         var btnlogin = findViewById(R.id.btnchangepassword) as Button
         btnlogin.setOnClickListener {
 
-            val intent = Intent(this, PopUpSignup::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             val intent1 = Intent(this, Changepass::class.java)
 
-            check()
 
 
             val call = RetrofitService.endpoint.login( EditTextTelephoneLogin.text.toString(),EditTextTelephonePassword.text.toString())
@@ -42,8 +41,8 @@ class LoginActivity : AppCompatActivity() {
                     }
                     else {
                         if (response?.body()!![0].newpassword=="0"){
-                            var phone = response?.body()!![0].phone
                             log(response?.body()!![0].phone,response?.body()!![0].password)
+                            startActivity(intent)
                         }
                         else {
                             Toast.makeText(this@LoginActivity, "Accueil", Toast.LENGTH_SHORT).show()
