@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
-    tools:context=".LoginActivity">
+    tools:context=".Changepass">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+        android:id="@+id/textInputLayout1"
         android:layout_width="320dp"
         android:layout_height="70dp"
         android:baselineAligned="false"
+        app:endIconMode="password_toggle"
         app:hintTextColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,19 +19,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.379"
-        app:startIconDrawable="@mipmap/person_icon_foreground">
+        app:startIconDrawable="@mipmap/password_icon_foreground">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/EditTextTelephoneLogin"
+            android:id="@+id/EditTextTelephonePassword1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:hint="Telephone"
-            android:inputType="phone"
-            android:textColor="@color/design_default_color_on_secondary"
-            android:textColorHighlight="@color/colorSecondary"
-            android:textColorHint="@color/colorSecondary"
-            android:textColorLink="@color/colorSecondary"
+            android:hint="Enter your new password"
+            android:inputType="textPassword"
             android:textCursorDrawable="@null" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
-            android:hint="Password"
+            android:hint="Confirm your new password "
             android:inputType="textPassword"
             android:textCursorDrawable="@null" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -65,28 +61,13 @@
         style="@style/AppTheme.RoundedCornerMaterialButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
+        android:text="Confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.658" />
-
-    <Button
-        android:id="@+id/ButtonLoginToSignUp"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SignUp"
-        android:textColor="@color/colorSecondary"
-        app:backgroundTint="@color/colorSecondary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.768" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -97,6 +78,18 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163"
+        app:layout_constraintVertical_bias="0.027"
         app:srcCompat="@mipmap/logo_foreground" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHANGE YOUR PASSWORD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.275" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,7 @@ import retrofit2.Response
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.edit
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -140,7 +141,33 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
     }
+    fun logout(){
+        val pref = this.getSharedPreferences("status"
 
+            ,Context.MODE_PRIVATE)
+        pref.edit {
+            putBoolean("connected"
+                ,false)
+
+
+
+
+        }
+
+    }
+
+    fun check():Boolean{
+
+        val pref = this.getSharedPreferences("status"
+
+            ,Context.MODE_PRIVATE)
+
+        val con = pref.getBoolean("connected"
+
+            , false)
+        return con
+
+    }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.list_medecins_recherche ->{
@@ -149,24 +176,55 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Toast.makeText(this, "MAin activity", Toast.LENGTH_SHORT).show()
             }
             R.id.list_medecin_traitant_id -> {
-                val intent = Intent(this, MedecinTraitantActivity::class.java)
-                // To pass any data to next activity
-                //intent.putExtra("keyIdentifier", value)
-                // start your next activity
-                startActivity(intent)
-                Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show()
-            }
+
+
+                val con = check()
+
+
+                if (con) {
+                    val intent = Intent(this, MedecinTraitantActivity::class.java)
+                    // To pass any data to next activity
+                    //intent.putExtra("keyIdentifier", value)
+                    // start your next activity
+                    startActivity(intent)
+                }
+                else {Toast.makeText(this, "You have to login ", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+
+                }
+                 }
             R.id.rendez_vous_id -> {
-                Toast.makeText(this, "Messages clicked", Toast.LENGTH_SHORT).show()
-            }
+                val con = check()
+
+
+                if (con) {
+
+                }
+                else {Toast.makeText(this, "You have to login ", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+
+                }            }
             R.id.suivi_id -> {
-                Toast.makeText(this, "Friends clicked", Toast.LENGTH_SHORT).show()
-            }
+                val con = check()
+
+
+                if (con) {
+
+                }
+                else {Toast.makeText(this, "You have to login ", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+
+                }            }
             R.id.aide_id -> {
                 Toast.makeText(this, "Update clicked", Toast.LENGTH_SHORT).show()
             }
             R.id.deconnexion_id -> {
-                Toast.makeText(this, "Sign out clicked", Toast.LENGTH_SHORT).show()
+                logout()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
